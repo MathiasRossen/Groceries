@@ -14,7 +14,7 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var db: AppDatabase
+    private lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,15 +30,6 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Thread {
-            db.groceryDao().insert(Grocery(Random.nextInt(), "new thing"))
-            val g = db.groceryDao().getAll().last()
-            Log.d("HEST", "${g.uid}, ${g.title}")
-        }.start()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

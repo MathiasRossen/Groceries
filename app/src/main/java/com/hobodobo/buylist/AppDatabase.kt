@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.hobodobo.buylist.grocery.Grocery
 import com.hobodobo.buylist.grocery.GroceryDao
 
-@Database(entities = arrayOf(Grocery::class), version = 1)
+@Database(entities = [Grocery::class], version = 2)
 abstract class AppDatabase : RoomDatabase(){
     abstract fun groceryDao(): GroceryDao
 }
