@@ -9,9 +9,26 @@
         tools:showIn="@layout/activity_main"
         tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/main_recyclerview"/>
+            android:orientation="vertical">
+
+        <EditText
+                android:id="@+id/edt_grocery_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:id="@+id/btn_grocery_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Clear"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

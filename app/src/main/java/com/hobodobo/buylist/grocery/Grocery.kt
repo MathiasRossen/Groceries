@@ -1,10 +1,18 @@
 package com.hobodobo.buylist.grocery
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import com.google.firebase.database.Exclude
+import com.google.firebase.database.IgnoreExtraProperties
 
-@Entity
+@IgnoreExtraProperties
 data class Grocery(
-    @PrimaryKey(autoGenerate = true) val uid: Int,
-    var title: String
-)
+    var title: String? = "",
+    var description: String? = ""
+) {
+    @Exclude
+    fun toMap(): Map<String, Any?> {
+        return mapOf(
+            "title" to title,
+            "description" to description
+        )
+    }
+}
